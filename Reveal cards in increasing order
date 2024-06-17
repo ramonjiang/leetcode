@@ -1,0 +1,21 @@
+## https://leetcode.com/problems/reveal-cards-in-increasing-order/      
+
+        deck.sort()
+        low = []
+        high = []
+        output = []
+        half = len(deck) // 2
+        if len(deck) % 2 != 0:
+            low = deck[:half + 1]
+            high = deck[half + 1: len(deck)]
+            for i in range(len(low) - 1):
+                output.append(low[i])
+                output.append(high[i])
+            output.append(low[len(low) - 1])
+        else:
+            low = deck[:half]
+            high = deck[half: len(deck)]
+            for i in range(len(low)):
+                output.append(low[i])
+                output.append(high[i])
+        return output
