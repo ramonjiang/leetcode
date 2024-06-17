@@ -1,0 +1,11 @@
+        ## create dictionary. key is what minute and value(s) are what user(s)
+        ## total number of unique keys for each user
+        
+        dic = {}
+        for u, m in logs:
+            if m not in dic:
+                dic[m] = []
+                dic[m].append(u)
+            else:
+                dic[m].append(u)
+        print(dic)
