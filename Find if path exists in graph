@@ -1,0 +1,19 @@
+## https://leetcode.com/problems/find-if-path-exists-in-graph/
+## BFS or DFS
+        queue = [n]
+
+        visited = set([n])
+
+        bfs = []
+
+        while queue:
+            node = queue.pop(0)
+            bfs.append(node)
+
+            for neighbor in edges:
+                ## need tuple, cant use list
+                neighbor_tuple = tuple(neighbor)
+                if neighbor_tuple not in visited:
+                    visited.add(neighbor_tuple)
+                    queue.append(neighbor_tuple)
+        print(bfs)
