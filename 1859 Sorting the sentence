@@ -1,0 +1,31 @@
+class Solution:
+    def sortSentence(self, s: str) -> str:
+        
+        ## divide s into array of words by space
+        ## grab the last char in each word
+        ## remove from word and store its element
+
+        words = []
+        word = ""
+        dic = {}
+        out = ""
+        for char in s:
+            if char != " ":
+                word += char
+            else:
+                words.append(word)
+                word = ""
+        if len(word) > 1:
+            words.append(word)
+
+        for word in words:
+            index = word[-1]
+            word = word[:-1]
+            dic[index] = word
+        
+        sorted_dic = {key: dic[key] for key in sorted(dic)}
+        for i in sorted_dic:
+            out += str(sorted_dic[i] + " ")
+        out = out [:-1]
+        return out
+
